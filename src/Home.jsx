@@ -26,7 +26,7 @@ let Home=()=>{
         
     }
     let loginClick=(event)=>{
-        axios.post("http://localhost:8080/signin",{
+        axios.post("https://prodotologin-production.up.railway.app/signin",{
             email:Details.user,
             password:Details.pass
         }).then(res=>{
