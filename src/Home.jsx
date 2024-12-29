@@ -52,7 +52,7 @@ let Home=()=>{
     }
 
     return    <>
-     <div className="c1" style={{height:"90vh"}}>
+     <div className="c1 d-flex align-items-center" style={{height:"90vh"}}>
         
      <body className="d-flex align-items-center py-4 bg-body-tertiary container col-sm-3 col-9" cz-shortcut-listen="true" >
     <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
