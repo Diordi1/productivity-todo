@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 let Home=()=>{
 
     let {username,setusername}=useContext(Logincontext);
+    let {jwtToken,setToke,url}=useContext(Logincontext);
+
     let navigate=useNavigate();
 
     const [Details, setDetails] = useState({
@@ -26,13 +28,16 @@ let Home=()=>{
         
     }
     let loginClick=(event)=>{
-        axios.post("https://prodotologin-production.up.railway.app/signin",{
+        axios.post(url+"/signin",{
             email:Details.user,
             password:Details.pass
         }).then(res=>{
             if(res.status==200){
                 setusername(Details.user)
+                setToke(res.data);
+                
                 navigate('/test')
+
             }
         })
         .catch(err=>console.log(err +"we are here"))

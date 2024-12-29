@@ -4,7 +4,9 @@ import  Logincontext  from "./loginconte";
 let LoginContextProvider=({children})=>{
     let[username,setusername]=useState("");
     let [jwtToken,setToke]=useState("");
-    return <Logincontext.Provider value={{username,jwtToken,setusername,setToke}}>
+    let url="https://prodoto-spring-update-production.up.railway.app";
+
+    return <Logincontext.Provider value={{username,jwtToken,setusername,setToke,url}}>
         {children}
     </Logincontext.Provider>
 

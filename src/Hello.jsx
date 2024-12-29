@@ -15,7 +15,9 @@ function Hello() {
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">{username}</h1>
         <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-warning btn-lg" type="button">See Todos</button>
+        <button class="btn btn-warning btn-lg" type="button" onClick={()=>{
+          navigate("/todo")
+        }}>See Todos</button>
       </div>
     </div>
     <div class="row align-items-md-stretch">
@@ -30,7 +32,9 @@ function Hello() {
         <div class="h-100 p-5 bg-body-tertiary border rounded-3">
           <h2>Add Todos</h2>
           <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-          <button class="btn btn-outline-secondary" type="button" onClick={handleClick}>Add Todo  </button>
+          <button class="btn btn-outline-secondary" type="button" onClick={()=>{
+            
+          }}>Add Todo  </button>
         </div>
       </div>
     </div>

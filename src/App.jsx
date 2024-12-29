@@ -11,6 +11,7 @@ import  LoginContextProvider  from './logincontext'
 import CheckAuth from './checkAuthe'
 import Todos from './Todos'
 import Addtodo from './Addtodo'
+import Add from './add'
 function App() {
   
 
@@ -31,8 +32,9 @@ function App() {
         
         }></Route>
       <Route path="/" element={<Home/>}></Route>
-      <Route path="/todo" element={<Todos/>}></Route>
-      <Route path="/addtodo" element={<Addtodo/>}></Route>
+      <Route path="/todo/" element={<Todos/>}></Route>
+      <Route path="/addtodo/:id" element={<Addtodo/>}></Route>
+      <Route path="/addtodo" element={<Add/>}></Route>
      </Routes>
      </LoginContextProvider>
      <Footer/>
