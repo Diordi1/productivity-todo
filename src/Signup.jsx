@@ -37,7 +37,7 @@ let Signup=()=>{
                 <form>
   
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={details.email}disabled  />
+                    <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={details.email.split("@")[0]}disabled  />
                     <label className="form-label" for="form3Example1cg">Your Name</label>
                   </div>
   
