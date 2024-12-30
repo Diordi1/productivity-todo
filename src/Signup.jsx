@@ -29,7 +29,7 @@ let Signup=()=>{
       <div className="container vh-50">
         <div className="row d-flex justify-content-center align-items-center vh-10">
           <div className="col-12 col-md-12 col-lg-12 col-xl-12">
-            <div className="card b-r-15" >
+            <div className="card b-r-15 shadow-sm" >
               <div className="card-body p-5">
                 {err.flag?<p>{err.message}</p>:<></>}
                 <h2 className="text-uppercase text-center mb-5">Create an account</h2>
