@@ -102,8 +102,8 @@ let Home=()=>{
     </div>
 
     
-<main className="form-signin w-100 m-auto">
-  <form>
+<main className="form-signin w-100 m-auto shadow-sm rounded">
+  <form className='p-4'>
     <h1 className='text-center mb-4'>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">

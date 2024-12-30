@@ -25,10 +25,10 @@ let Signup=()=>{
    
     return <section className="vh-90 d-flex align-items-center justify-content-center bg-image"
     >
-    <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-      <div className="container h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+    <div className="mask d-flex align-items-center vh-50 gradient-custom-3">
+      <div className="container vh-50">
+        <div className="row d-flex justify-content-center align-items-center vh-10">
+          <div className="col-12 col-md-12 col-lg-12 col-xl-12">
             <div className="card b-r-15" >
               <div className="card-body p-5">
                 {err.flag?<p>{err.message}</p>:<></>}
