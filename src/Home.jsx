@@ -1,7 +1,7 @@
 import React, { useContext,useEffect,useState } from 'react';
 import  Logincontext  from './loginconte';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 
 
 let Home=()=>{
@@ -129,6 +129,8 @@ let Home=()=>{
       </label>
     </div>
     <button className="btn btn-primary w-100 py-2" type="submit" onClick={loginClick}>Sign in</button>
+    <p className="text-center text-muted mt-5 mb-0">Don't have a account? <Link to="/signup"
+                      className="fw-bold text-body"><u>Create Acoount Here</u></Link></p>
    
   </form>
 </main>

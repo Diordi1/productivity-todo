@@ -1,8 +1,12 @@
 import React from 'react';
 
 function Footer() {
-    return ( <div className="container">
-        <footer className="row row-cols-1 row-cols-sm-3 row-cols-md-5 py-5 my-5 border-top">
+    return ( 
+      <div>
+        <hr></hr>
+    <div className="container">
+      
+        <footer className="row row-cols-1 row-cols-sm-3 row-cols-md-5 py-5 my-5">
           <div className="col mb-3">
             <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
               <svg className="bi me-2" width="40" height="32"><use ></use></svg>
@@ -47,6 +51,7 @@ function Footer() {
             </ul>
           </div>
         </footer>
+      </div>
       </div> );
 }
 
