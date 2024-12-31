@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Logincontext from "./loginconte";
+import { toast,ToastContainer } from "react-toastify";
 let Addtodo=()=>{
     let {url,jwtToken,username}=useContext(Logincontext);
     
@@ -30,12 +31,15 @@ let Addtodo=()=>{
 
     )
     console.log(res)
+    toast.success("Data Found")
 }).catch(err=>{
         console.log(err)
+        toast.error("Something went wrong")
     }).finally(()=>console.log("Found error"))
 
     },[id])
     return <>
+    <ToastContainer />
         <div className="container">
             <p>{id}</p>
             <h1 className="text-align-center">AddTodo</h1>
@@ -69,6 +73,7 @@ let Addtodo=()=>{
                 }).then(res=>{
                     console.log(res)
                     navigate("/todo")
+                    toast.success("Update Successfully")
                 }).catch(err=>{console.log("catched error at the update stage"+err)})
                 .finally(()=>console.log("happended"))
             }}>Add</button>

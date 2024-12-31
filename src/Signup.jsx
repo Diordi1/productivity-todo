@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import Logincontext from "./loginconte";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 let Signup=()=>{
 
@@ -25,6 +26,7 @@ let Signup=()=>{
    
     return <section className="vh-90 d-flex align-items-center justify-content-center bg-image"
     >
+        <ToastContainer/>
     <div className="mask d-flex align-items-center vh-50 gradient-custom-3">
       <div className="container vh-50">
         <div className="row d-flex justify-content-center align-items-center vh-10">
@@ -79,6 +81,7 @@ let Signup=()=>{
                                     flag:true,
                                     message:"Password not Matched"
                                 })
+                                toast.error("Password Don't Match")
                             }else{
 
                                 axios.post(url+"/signup",{
@@ -91,11 +94,13 @@ let Signup=()=>{
                                         })
                                         navigate("/")
                                     }
+                                    toast.success("Created Account Succesfully!!")
                                 }).catch(err=>{
                                     seterr({
                                         flag:true,
                                         message:"Something went wrong"
                                     })
+                                    toast.error("Invalid Actions !")
                                 })
                             }
                         }

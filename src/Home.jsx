@@ -2,7 +2,7 @@ import React, { useContext,useEffect,useState } from 'react';
 import  Logincontext  from './loginconte';
 import axios from "axios";
 import { useNavigate ,Link} from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 let Home=()=>{
 
@@ -35,12 +35,14 @@ let Home=()=>{
             if(res.status==200){
                 setusername(Details.user)
                 setToke(res.data);
-                
+                toast.success("Logged in successfully");
                 navigate('/test')
 
             }
         })
-        .catch(err=>console.log(err +"we are here"))
+        .catch(err=>{
+          toast.error("Invalid Credentials")
+        })
         .finally(()=>console.log("Ended finally"))
 
         setDetails({
@@ -52,6 +54,7 @@ let Home=()=>{
     }
 
     return    <>
+    <ToastContainer />
      <div className="c1 d-flex align-items-center" style={{height:"90vh"}}>
         
      <body className="d-flex align-items-center py-4 bg-body-tertiary container col-sm-3 col-9" cz-shortcut-listen="true" >

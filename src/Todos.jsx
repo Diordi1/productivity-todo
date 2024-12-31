@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Logincontext from './loginconte';
-
+import { ToastContainer, toast } from 'react-toastify';
 let Todos=()=>{
   let [todos1,settodos1]=useState([]);
   let [count,setCount]=useState(1);
@@ -25,6 +25,7 @@ let Todos=()=>{
       }
     })
       .then(res=>{
+        
         settodos1(res.data)
         console.log(todos1);
         setCount(res.data[res.data.length-1].id)
@@ -42,18 +43,21 @@ let Todos=()=>{
             stateError:true,
             message:"Internal Server Error"
           })
+          toast.error("Internal Server Error");
         }else{
           console.log("Wrong data")
           seterrordetails({
             stateError:true,
             message:"Wrong data"
           })
+          toast.error("Invalid Acsess")
         }
       })
       .finally(()=>console.log("ended finalyy"))
   },[count])
 
     return<div className='container'>
+      <ToastContainer />
       {errordetails.stateError===true?<p className='bg-warning text-center fs-2 border rounded'>{errordetails.message}</p>:<></>}
       <div>
       <div class="row">
@@ -76,7 +80,7 @@ let Todos=()=>{
               settodos1(res.data);
               count++;
 
-
+              toast.success("Deleted Succesfully")
             }).catch(err=>console.log(err+"here in the delete was found"))
             .finally(()=>{console.log("delete was completed")})
           }

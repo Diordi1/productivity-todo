@@ -3,6 +3,7 @@ import React from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Logincontext from "./loginconte";
+import { toast,ToastContainer } from "react-toastify";
 let Add=()=>{
     let navigate=useNavigate()
     let {username,url}=useContext(Logincontext)
@@ -18,6 +19,7 @@ let Add=()=>{
     }
     return <>
     <div className="container">
+    <ToastContainer />
         <p></p>
         <h1 className="text-align-center">AddTodo</h1>
         <div className="input-group mb-3">
@@ -45,8 +47,12 @@ let Add=()=>{
 
             }).then(res=>{
                 console.log(res)
+                toast.success("Added Succesfully")
+
                 navigate("/todo")
-            }).catch(err=>{console.log("catched error at the update stage"+err)})
+            }).catch(err=>{console.log("catched error at the update stage"+err)
+                toast.error("Not Added")
+            })
             .finally(()=>console.log("happended"))
         }}>Add</button>
     </div>
