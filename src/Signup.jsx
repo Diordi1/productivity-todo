@@ -31,7 +31,7 @@ let Signup=()=>{
        {
 
          trigger?
-         <OtpVerification settrigger={setTrigger} trigger={true}></OtpVerification>:""
+         <OtpVerification settrigger={setTrigger} email={details.email} url={url}></OtpVerification>:""
         }
          <section className="vh-90 d-flex align-items-center justify-content-center bg-image"
         >
