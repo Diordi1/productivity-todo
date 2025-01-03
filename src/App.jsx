@@ -13,6 +13,7 @@ import Todos from './Todos'
 import Addtodo from './Addtodo'
 import Add from './add'
 import Signup from './Signup'
+import OtpVerification from './verifyOtp'
 function App() {
   
 
@@ -37,6 +38,7 @@ function App() {
       <Route path="/addtodo/:id" element={<Addtodo/>}></Route>
       <Route path="/addtodo" element={<Add/>}></Route>
       <Route path="/signup" element={<Signup/>}></Route>
+      <Route path="/verify" element={<OtpVerification/>}></Route>
      </Routes>
      </LoginContextProvider>
      <Footer/>

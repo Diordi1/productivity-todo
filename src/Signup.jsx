@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import Logincontext from "./loginconte";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import OtpVerification from "./verifyOtp";
 
 let Signup=()=>{
 
@@ -11,6 +12,7 @@ let Signup=()=>{
         password:'',
         setpass:''
     })
+    let [trigger,setTrigger]=useState(false);
     let [err,seterr]=useState({
         flag:false,
         message:""
@@ -24,9 +26,18 @@ let Signup=()=>{
     }
     let [check,setcheck]=useState(false);
    
-    return <section className="vh-90 d-flex align-items-center justify-content-center bg-image"
-    >
-        <ToastContainer/>
+    return<>
+      <ToastContainer/>
+       {
+
+         trigger?
+         <OtpVerification settrigger={setTrigger} trigger={true}></OtpVerification>:""
+        }
+         <section className="vh-90 d-flex align-items-center justify-content-center bg-image"
+        >
+                    
+                    <div>
+
     <div className="mask d-flex align-items-center vh-50 gradient-custom-3">
       <div className="container vh-50">
         <div className="row d-flex justify-content-center align-items-center vh-10">
@@ -65,7 +76,7 @@ let Signup=()=>{
                             setcheck(event.target.checked);
 
                         }
-                    }/>
+                      }/>
                     <label className="form-check-label" for="form2Example3g">
                       I agree all statements in <a href="#!" className="text-body"><u>Terms of service</u></a>
                     </label>
@@ -83,31 +94,32 @@ let Signup=()=>{
                                 })
                                 toast.error("Password Don't Match")
                             }else{
-
-                                axios.post(url+"/signup",{
+                              
+                              axios.post(url+"/signup",{
                                   "email":details.email,
                                   "password":details.password
                                 }).then(res=>{
-                                    if(res.status==201){
+                                  if(res.status==201){
                                         seterr({
-                                            flag:false,
+                                          flag:false,
                                         })
-                                        navigate("/")
-                                    }
-                                    toast.success("Created Account Succesfully!!")
-                                }).catch(err=>{
+                                        setTrigger(true);
+
+                                      }
+                                      toast.success("Created Account Succesfully!!")
+                                    }).catch(err=>{
                                     seterr({
                                         flag:true,
                                         message:"Something went wrong"
                                     })
                                     toast.error("Invalid Actions !")
-                                })
+                                  })
                             }
-                        }
+                          }
                       }
                       >Register</button>
                   </div>
-  
+                 
                   <p className="text-center text-muted mt-5 mb-0">Have already an account? <Link to="/"
                       className="fw-bold text-body"><u>Login here</u></Link></p>
   
@@ -119,6 +131,13 @@ let Signup=()=>{
         </div>
       </div>
     </div>
+                                  </div>
+              
+              
+                        
+                     
   </section>
+
+   </>
 }
 export default Signup;
