@@ -6,9 +6,7 @@ function OtpVerification(props) {
     let [otp,setotp]=useState("");
 
     let navigate=useNavigate();
-    let c=new FormData();
-    c.append("email",props.email);
-    c.append("otp",otp);
+    
 
     return (
    
@@ -32,13 +30,16 @@ function OtpVerification(props) {
             }}/>
             </div>
        
-        <button type="button" className="btn btn-lg btn-primary" data-bs-dismiss="modal" onClick={()=>
+        <button type="button" className="btn btn-lg btn-primary" data-bs-dismiss="modal" onClick={()=>{
 
+            let c=new FormData();
+             c.append("email",props.email);
+            c.append("otp",otp);
             axios.post(props.url+"/verify",c).then(res=>{
                 if(res.status==201){
-                   console.log(res)
-                   toast.success("OTP Verified")
-                   
+                    console.log(res)
+                    toast.success("OTP Verified")
+                    
                     navigate("/");
                    
 
@@ -46,10 +47,11 @@ function OtpVerification(props) {
             }).catch(err=>{
                 toast.error("Wrong otp")
                 console.log(err);
-
+                
             })
+        }
         }>Verify</button>
-      </div>
+        </div>
     </div>
   </div>
 </div>

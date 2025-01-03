@@ -11,7 +11,7 @@ function Footer() {
             <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
               <svg className="bi me-2" width="40" height="32"><use ></use></svg>
             </a>
-            <p className="text-body-secondary text-center">© 2024</p>
+            <p className="text-body-secondary text-center">© Prodoto 2024</p>
           </div>
       
           <div className="col mb-3">
